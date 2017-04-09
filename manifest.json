@@ -1,0 +1,42 @@
+{
+  "name": "tmall-rate-thumb-extend",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  // 简单描述
+  "description": "增加在天猫商品评价页显示原图及图片旋转操作功能",
+  "icons": {
+    "16": "image/icon32.png",
+    "48": "image/icon48.png"
+  },
+  // 浏览器小图表部分
+  "browser_action": {
+    "default_icon": "image/icon48.png" ,
+    "default_title": "天猫评价页缩略图扩展",
+    "default_popup": "html/index.html"
+  },
+  // 引入一个脚本
+  "content_scripts": [
+    {
+      "css": [
+        "style/style.css"
+      ],
+      "js": [
+        "script/jquery.js",
+        "script/index.js"
+      ],
+      // 在什么情况下使用该脚本
+      "matches": [
+        "http://detail.tmall.com/*",
+        "https://detail.tmall.com/*"
+      ],
+      // 什么情况下运行【文档加载开始】
+      "run_at": "document_start"
+    }
+  ],
+  // 应用协议页面
+  "permissions": [
+    "tabs", "http://detail.tmall.com/*",
+    "http://detail.tmall.com/*",
+    "https://detail.tmall.com/*"
+  ]
+}
